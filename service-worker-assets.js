@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "P68+smbi",
+  "version": "qFHdatda",
   "assets": [
     {
-      "hash": "sha256-P7a3R+LMZSBjMTh1hDEja8Mt4qiEEwQ2Mw77G/U0M9Y=",
+      "hash": "sha256-Ccwe0oesTQfhwMUa9ulPHj5pYcWrWH8VvtUesOVwGro=",
       "url": "404.html"
     },
     {
@@ -198,7 +198,7 @@ self.assetsManifest = {
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-P7a3R+LMZSBjMTh1hDEja8Mt4qiEEwQ2Mw77G/U0M9Y=",
+      "hash": "sha256-Ccwe0oesTQfhwMUa9ulPHj5pYcWrWH8VvtUesOVwGro=",
       "url": "index.html"
     },
     {
