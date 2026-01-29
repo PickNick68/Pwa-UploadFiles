@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Blazor.Pwa.UploadFiles.Client",
   "resources": {
-    "hash": "sha256-zCH4oLF8kKPX8wrYAlwBymu9kowqLc49FTtrqIibfLM=",
+    "hash": "sha256-OMmPvHK2A+Uthz7xAi/SzNLxtE74fgcjewRW16SC7bs=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-AlwvznbYtTfPMFBjZqh7Wj4D/MDuNAMT79h4fd0B7s0="
     },
@@ -19,7 +19,7 @@
     "coreAssembly": {},
     "assembly": {
       "Blazor.Barcode.Scanner.Zxing.wasm": "sha256-e2KDWg+ycO5LkR3KDP7Bp2YO64eqh5t5p4qtx8557aw=",
-      "Blazor.Pwa.UploadFiles.Client.wasm": "sha256-RKdcWuTYF4oNxBNUgXmDeJ/o2f+A4pMaCZgHnrgTRxQ=",
+      "Blazor.Pwa.UploadFiles.Client.wasm": "sha256-9VXe55EYSSUwbeN3gmoS99AslgXuo3HTj1I1Izuep6s=",
       "Blazor.Scanner.Client.wasm": "sha256-59ix5DOXBQvX+pJOZ0LAVaT4kfebABtxTk/q5QK2i9w=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-HwJ1oXV+FrHvVFviYKuKPkUzmp4GgQT0rqZAD5FPqVY=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-s9C2n+Y2tMQiuV2WEC12wALK+0FWbhnaR2r26KMmj18=",
