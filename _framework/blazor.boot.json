@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Blazor.Pwa.UploadFiles.Client",
   "resources": {
-    "hash": "sha256-OKNCG6p2hQncS9NqQiNboUErI0TzH9bLaI9o4asoLlQ=",
+    "hash": "sha256-NGbvpw0/FB0vHcwNzoSa38iXnJ5SCfv8Zfic9sCKdIc=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-AlwvznbYtTfPMFBjZqh7Wj4D/MDuNAMT79h4fd0B7s0="
     },
@@ -19,7 +19,7 @@
     "coreAssembly": {},
     "assembly": {
       "Blazor.Barcode.Scanner.Zxing.wasm": "sha256-a/Bxcrxe8c2PzOMsyWe0QQixUXDFBTj5MduHqm2m/hQ=",
-      "Blazor.Pwa.UploadFiles.Client.wasm": "sha256-U8vZqlf7vSFT+lnM0PI/meRtiVuvz+ecmuxT1BoNC6o=",
+      "Blazor.Pwa.UploadFiles.Client.wasm": "sha256-kHZ7rLZeE6HLphwD10wKHnEntU+kv8QvBOUp5MsJeJc=",
       "Blazor.Scanner.Client.wasm": "sha256-GXKfmKD30GkUar96EfQO94KemEEiwr3ivEoOde9dWZ0=",
       "Blazor.ZoomImage.Component.wasm": "sha256-YUGXc5fhUZ+jBfIw6yX0aoydHQSDc/ys4A/6Xd6Z6GU=",
       "Blazored.LocalStorage.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
