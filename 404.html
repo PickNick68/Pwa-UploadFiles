@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blazor.Pwa.UploadFiles.Client</title>
+    <title>Upload File</title>
     <base href="/Pwa-UploadFiles/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
@@ -32,9 +32,10 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
-    <!-- Important: Increment the version parameter whenever you update MudBlazor to prevent caching issues -->
-    <script src="_content/MudBlazor/MudBlazor.min.js?v=2"></script>
+    <script src="_content/BlazorPanzoom/panzoom.min.js"></script>
+    <script src="_content/BlazorPanzoom/blazorpanzoom.js"></script>
     <script src="_content/Blazor.Barcode.Scanner.Zxing/zxingjs.index.min.js"></script>
     <script src="_content/Blazor.Barcode.Scanner.Zxing/BlazorBarcodeScanner.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
