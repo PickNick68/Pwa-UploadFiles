@@ -44,5 +44,26 @@ window.webAuthnFunctions = {
 
         const assertion = await navigator.credentials.get(getOptions);
         return assertion != null;
+    },
+
+    isAppleDevice: async () => {
+        // 1. Tenta con le moderne Client Hints (se disponibili, es. Chrome su iOS)
+        if (navigator.userAgentData) {
+            const brands = navigator.userAgentData.brands.map(b => b.brand.toLowerCase());
+            if (brands.includes('ios') || brands.includes('iphone')) return true;
+        }
+
+        // 2. Fallback per Safari (che non supporta userAgentData)
+        // Controlliamo il numero di tocchi massimi (iPad/iPhone ne hanno almeno 5) 
+        // e la presenza di "Mac" nell'User Agent (per iPadOS che si finge Mac)
+        const isMacLike = /Mac|iPhone|iPod|iPad/.test(navigator.userAgent);
+        const hasTouch = navigator.maxTouchPoints > 1;
+
+        // Se è un Mac con touch, è quasi certamente un iPad.
+        // Se l'User Agent contiene iPhone/iPod/iPad, è un dispositivo iOS.
+        return isMacLike && hasTouch;
+
     }
+    
 };
+

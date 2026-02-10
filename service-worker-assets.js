@@ -1,12 +1,12 @@
 self.assetsManifest = {
-  "version": "xn1Pw9vx",
+  "version": "XSH/rzBz",
   "assets": [
     {
       "hash": "sha256-+eD2fecWcJOFd7bQEvAzBOe//OPJ0iUW0Czzz2/0kL0=",
       "url": "404.html"
     },
     {
-      "hash": "sha256-fYZF2Mwgj2QYm//h+lnKfZvZ2oE6bTyL7uw7N7br7ag=",
+      "hash": "sha256-fn/H65AlhuJfEj+1V6fDjI56+2VW0q6LfSDVNAPZKRE=",
       "url": "Blazor.Pwa.UploadFiles.Client.styles.css"
     },
     {
@@ -35,10 +35,18 @@ self.assetsManifest = {
     },
     {
       "hash": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
+      "url": "_content/Blazor.Pwa.Log.Client/background.png"
+    },
+    {
+      "hash": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=",
+      "url": "_content/Blazor.Pwa.Log.Client/exampleJsInterop.js"
+    },
+    {
+      "hash": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
       "url": "_content/Blazor.Pwa.Password.Client/background.png"
     },
     {
-      "hash": "sha256-iKiLxRzDzFJ31hg9n0wX3R/hsptc3D+wRrM9kd6rvMs=",
+      "hash": "sha256-qhXpP9wozuklMKnRxO8LoV2ngtM0B+n0DZHs4yW7LEw=",
       "url": "_content/Blazor.Pwa.Password.Client/webAuthn.js"
     },
     {
@@ -122,11 +130,15 @@ self.assetsManifest = {
       "url": "_framework/Blazor.Pwa.Info.Client.wasm"
     },
     {
-      "hash": "sha256-qQldEqSRrkcKOaH1zG8AHHp7rkXh3tYJzP9ogi84COM=",
+      "hash": "sha256-HRXZPoCVVNttT2SXYfOPols1qfI/apOZM+nnOMVtvQA=",
+      "url": "_framework/Blazor.Pwa.Log.Client.wasm"
+    },
+    {
+      "hash": "sha256-6IOymmCK3HArnjLd/WS0D/tjUrg/kCP45GVW42dmNog=",
       "url": "_framework/Blazor.Pwa.Password.Client.wasm"
     },
     {
-      "hash": "sha256-0jF/ZQMAAluOrYJVCbhebjqsdCKlUf07SkHFDmpSdNo=",
+      "hash": "sha256-X1rbxJSQfy1UmzvL8LkgIIIYqMGMg78wPWFyyZTkXM4=",
       "url": "_framework/Blazor.Pwa.UploadFiles.Client.wasm"
     },
     {
@@ -430,7 +442,7 @@ self.assetsManifest = {
       "url": "_framework/System.wasm"
     },
     {
-      "hash": "sha256-4dyi2D7oE/gPqvgbFZhuEyTQ57XKxjBs7A0kKuzEOCQ=",
+      "hash": "sha256-GeLq2gUhSkETGtEr4oGbeb41/iAs9+j9rAT6K/K10zk=",
       "url": "_framework/blazor.boot.json"
     },
     {
