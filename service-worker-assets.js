@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "6R3HnI7R",
+  "version": "CCth/llq",
   "assets": [
     {
       "hash": "sha256-+eD2fecWcJOFd7bQEvAzBOe//OPJ0iUW0Czzz2/0kL0=",
@@ -138,7 +138,7 @@ self.assetsManifest = {
       "url": "_framework/Blazor.Pwa.Password.Client.wasm"
     },
     {
-      "hash": "sha256-T13dTu1K5yd2r+jnRarDOz4klOYLuvdGsPPis6FJnk8=",
+      "hash": "sha256-UIu0+kcbQUDmZmreQLuZWWuCmU3u4NwzvPrtFMWEoFY=",
       "url": "_framework/Blazor.Pwa.UploadFiles.Client.wasm"
     },
     {
@@ -442,7 +442,7 @@ self.assetsManifest = {
       "url": "_framework/System.wasm"
     },
     {
-      "hash": "sha256-dA/z0OSVLH+dIPXFHKnX5uBkkqRR/1YoIyUNdVVlJkQ=",
+      "hash": "sha256-D3UBmiIzRg+etu7AvtWEosUQ1X/otyLEzIcW7w7eV5g=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -510,7 +510,7 @@ self.assetsManifest = {
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-NmWU4LPMJ+WyQsWXK2Pv4yvlVWSm2nCyFS55oHPbn88=",
+      "hash": "sha256-pCoJmUe5GFYex1sVEsj9qztDE7HJ/TAxjpzUYIMjgBE=",
       "url": "info.json"
     },
     {
