@@ -1,6 +1,6 @@
 {
-  "name": "Blazor.Pwa.UploadFiles.Client",
-  "short_name": "Blazor.Pwa.UploadFiles.Client",
+  "name": "Transfer Photo",
+  "short_name": "Transfer Photo",
   "id": "./",
   "start_url": "./",
   "display": "standalone",
@@ -18,5 +18,18 @@
       "type": "image/png",
       "sizes": "192x192"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "/receive-share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "screenshot",
+          "accept": [ "image/png", "image/jpeg" ]
+        }
+      ]
+    }
+  }
 }
