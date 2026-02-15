@@ -63,7 +63,34 @@ window.webAuthnFunctions = {
         // Se l'User Agent contiene iPhone/iPod/iPad, è un dispositivo iOS.
         return isMacLike && hasTouch;
 
+    },
+
+    encrypt: async (plainText, password) => {
+        const enc = new TextEncoder();
+        const keyMaterial = await crypto.subtle.importKey("raw", enc.encode(password.padEnd(32).substring(0, 32)), "PBKDF2", false, ["deriveKey"]);
+        const key = await crypto.subtle.deriveKey(
+            { name: "PBKDF2", salt: enc.encode("unique-salt"), iterations: 1000, hash: "SHA-256" },
+            keyMaterial, { name: "AES-GCM", length: 256 }, false, ["encrypt"]
+        );
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc.encode(plainText));
+        return btoa(JSON.stringify({ iv: btoa(String.fromCharCode(...iv)), data: btoa(String.fromCharCode(...new Uint8Array(encrypted))) }));
+    },
+
+    decrypt: async (combinedBase64, password) => {
+        try {
+            const enc = new TextEncoder();
+            const { iv: ivB64, data: dataB64 } = JSON.parse(atob(combinedBase64));
+            const iv = Uint8Array.from(atob(ivB64), c => c.charCodeAt(0));
+            const data = Uint8Array.from(atob(dataB64), c => c.charCodeAt(0));
+            const keyMaterial = await crypto.subtle.importKey("raw", enc.encode(password.padEnd(32).substring(0, 32)), "PBKDF2", false, ["deriveKey"]);
+            const key = await crypto.subtle.deriveKey(
+                { name: "PBKDF2", salt: enc.encode("unique-salt"), iterations: 1000, hash: "SHA-256" },
+                keyMaterial, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
+            );
+            const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, data);
+            return new TextDecoder().decode(decrypted);
+        } catch (e) { return null; }
     }
-    
 };
 
