@@ -1,12 +1,12 @@
 self.assetsManifest = {
-  "version": "uR8zON0X",
+  "version": "nFgIm7WV",
   "assets": [
     {
       "hash": "sha256-h8JVhhN3Up3ORsTsqfgGXj6OODy4XCYfVSJ1MUfl0mQ=",
       "url": "404.html"
     },
     {
-      "hash": "sha256-fn/H65AlhuJfEj+1V6fDjI56+2VW0q6LfSDVNAPZKRE=",
+      "hash": "sha256-se3HzcGDk3pcATeEfm6DMoThVQRvHBDufn2qTD97fZc=",
       "url": "Blazor.Pwa.UploadFiles.Client.styles.css"
     },
     {
@@ -28,6 +28,18 @@ self.assetsManifest = {
     {
       "hash": "sha256-4ycRkHOtg8+ubBkP4MWHMCkJ1JqOpgHeH+98qEGGc10=",
       "url": "_content/Blazor.Components.Client/Upload.jpeg"
+    },
+    {
+      "hash": "sha256-S2wiMYfgzgaU7merkRKG3RXk4ziT5BTqSZ7TKeV6rvI=",
+      "url": "_content/Blazor.Nfc.Client/Blazor.Nfc.Client.9771haieow.bundle.scp.css"
+    },
+    {
+      "hash": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
+      "url": "_content/Blazor.Nfc.Client/background.png"
+    },
+    {
+      "hash": "sha256-x6FA6YmGdHoTbZ+M+mZbS9ZA3cViU3lyeHI/r4F8Edg=",
+      "url": "_content/Blazor.Nfc.Client/nfcJsInterop.js"
     },
     {
       "hash": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
@@ -122,7 +134,7 @@ self.assetsManifest = {
       "url": "_framework/Blazor.Bluetooth.wasm"
     },
     {
-      "hash": "sha256-3vTZHzr2a3gTq9bZL2yns9zRgUDrJ84oP7Tc0CRmJYo=",
+      "hash": "sha256-aM+IRjX26BjeekAkHgngCztw6hio3+6AqHa/J5S9MJ4=",
       "url": "_framework/Blazor.Components.Client.wasm"
     },
     {
@@ -146,6 +158,10 @@ self.assetsManifest = {
       "url": "_framework/Blazor.MessageService.Client.wasm"
     },
     {
+      "hash": "sha256-yH+cjFO/fkze357DxTJNzBKO9dp/GbOPUgSPcgfY5K0=",
+      "url": "_framework/Blazor.Nfc.Client.wasm"
+    },
+    {
       "hash": "sha256-xkSRrVzcmekaDRgHIrZUlrGDt59MOBnDSUfoiGvnDzQ=",
       "url": "_framework/Blazor.Pwa.Info.Client.wasm"
     },
@@ -158,7 +174,7 @@ self.assetsManifest = {
       "url": "_framework/Blazor.Pwa.Password.Client.wasm"
     },
     {
-      "hash": "sha256-obA0Ah/3QjtcpPSkTcCR5F54uCKy8wrICxV01nQS8LM=",
+      "hash": "sha256-Mf4AlcJWpNXSZ00gu796YCdpjgB6OC1uC7rcbq0PkZQ=",
       "url": "_framework/Blazor.Pwa.UploadFiles.Client.wasm"
     },
     {
@@ -166,7 +182,7 @@ self.assetsManifest = {
       "url": "_framework/Blazor.QrCoder.Shared.wasm"
     },
     {
-      "hash": "sha256-YwBZpWJ4j61aPZ63FgkwInUmjJwkMNoAJWZRbKRlAbM=",
+      "hash": "sha256-IcvQiOSwd7ONTCRi7glXIH4ZL4gv6SZZoLVuueO/UYk=",
       "url": "_framework/Blazor.Scanner.Client.wasm"
     },
     {
@@ -222,7 +238,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.AspNetCore.Components.WebAssembly.wasm"
     },
     {
-      "hash": "sha256-Ts6i8NQQLcvUCpeIrwT9PMV4k1P8gP8hGflvPMYclsQ=",
+      "hash": "sha256-LPTHMnbJsY0w2maqpl5uhVee96tpaRmV4sDW8mih2Wk=",
       "url": "_framework/Microsoft.AspNetCore.Components.wasm"
     },
     {
@@ -466,7 +482,7 @@ self.assetsManifest = {
       "url": "_framework/System.wasm"
     },
     {
-      "hash": "sha256-EQ4jlnvl7E2qjeMeLJFuiWxq0Nu5fVoY4HTUDSRU4m8=",
+      "hash": "sha256-5LHoQu7xdP80R3FepcDCEqpWso/7ohEH6ChvNaEIyRQ=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -534,7 +550,7 @@ self.assetsManifest = {
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-p+UPRHhtr+0Q2sTCdQ+98thKXGz2qo8FW33JNpuxxfA=",
+      "hash": "sha256-Q3vY6JhsK+FGT9rHc6le30UF2brrAzyqYyymzf+U5NQ=",
       "url": "info.json"
     },
     {
