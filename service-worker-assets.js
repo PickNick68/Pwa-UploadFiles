@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "nFgIm7WV",
+  "version": "uiOfMOAg",
   "assets": [
     {
       "hash": "sha256-h8JVhhN3Up3ORsTsqfgGXj6OODy4XCYfVSJ1MUfl0mQ=",
@@ -554,7 +554,7 @@ self.assetsManifest = {
       "url": "info.json"
     },
     {
-      "hash": "sha256-twW9Dhbsvv4CH7bQYfCMwTRyr48tvXO+pzeRydeaE/8=",
+      "hash": "sha256-11l5ZX+N/MNL5oxGMTTpe9k8f5J6Hdlq/UmYiXAZnik=",
       "url": "manifest.webmanifest"
     },
     {
