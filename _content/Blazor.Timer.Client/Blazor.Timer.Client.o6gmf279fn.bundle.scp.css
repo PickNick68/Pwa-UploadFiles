@@ -1,0 +1,10 @@
+/* _content/Blazor.Timer.Client/CountDownComponent.razor.rz.scp.css */
+.clock[b-nov2zftjv7] {
+    color: var(--color-tone-5);
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
