@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "yLgbXhao",
+  "version": "My3yT9Cd",
   "assets": [
     {
-      "hash": "sha256-h8JVhhN3Up3ORsTsqfgGXj6OODy4XCYfVSJ1MUfl0mQ=",
+      "hash": "sha256-IpOOwcmW5OJFXf3ween7liPLZsIMFxspogNAoy46nXY=",
       "url": "404.html"
     },
     {
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "Blazor.Pwa.UploadFiles.Client.styles.css"
     },
     {
-      "hash": "sha256-LzViLqhtTHFLnXNaRgFTI1IPQCJidiIx3PdDIuvN0r4=",
+      "hash": "sha256-DTgbXTMANysFQTxjUG3NtHZOU+V4j/gV06HPNSP1biI=",
       "url": "Index.html"
     },
     {
