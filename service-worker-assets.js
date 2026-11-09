@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "aykqqTFS",
+  "version": "Y4RGPxFd",
   "assets": [
     {
       "hash": "sha256-h8JVhhN3Up3ORsTsqfgGXj6OODy4XCYfVSJ1MUfl0mQ=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "Blazor.Pwa.UploadFiles.Client.styles.css"
     },
     {
-      "hash": "sha256-Cpssyaq69BSXqmipKN138QC7R/0V/KZQVHJuvCS3LoE=",
+      "hash": "sha256-TJwzpz22cflP6MNPKDotCZu/B3kA1D15ZD8UC2t7pfA=",
       "url": "Index.html"
     },
     {
@@ -552,14 +552,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-mcUZuS7K5D05hQg1Y8VF61klcwObVUBMjyuKA9JiH78=",
       "url": "appsettings.json"
-    },
-    {
-      "hash": "sha256-JEKnJvoX1asgdlKza+Nx1JIjno6vsxzLVlxd4t1iD84=",
-      "url": "audioRecorder.js"
-    },
-    {
-      "hash": "sha256-hLMn5VvSxEPrV113rglCnlzzoTHv1cEupt0jZvJCJgM=",
-      "url": "audioStorage.js"
     },
     {
       "hash": "sha256-JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI=",
