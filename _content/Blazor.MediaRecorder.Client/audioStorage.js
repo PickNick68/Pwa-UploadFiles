@@ -1,148 +1,91 @@
-window.audioStorage = {
+const dbName = "AudioRecorderDb";
+const storeName = "recordings";
 
+export function openDb() {
+    return new Promise((resolve, reject) => {
 
-    dbName: "AudioRecorderDb",
-    storeName: "recordings",
+        const request = indexedDB.open(dbName, 1);
 
-    openDb() {
+        request.onupgradeneeded = e => {
+            const db = e.target.result;
 
-        return new Promise((resolve, reject) => {
+            if (!db.objectStoreNames.contains(storeName)) {
+                db.createObjectStore(storeName, {
+                    keyPath: "id"
+                });
+            }
+        };
 
-            const request =
-                indexedDB.open(this.dbName, 1);
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
 
-            request.onupgradeneeded = e => {
+export async function saveRecording(recording) {
+    const db = await openDb();
 
-                const db = e.target.result;
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, "readwrite");
 
-                if (!db.objectStoreNames.contains(this.storeName)) {
+        tx.objectStore(storeName).put(recording);
 
-                    db.createObjectStore(
-                        this.storeName,
-                        {
-                            keyPath: "id"
-                        });
-                }
-            };
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+    });
+}
 
-            request.onsuccess =
-                () => resolve(request.result);
+export async function getRecording(id) {
+    const db = await openDb();
 
-            request.onerror =
-                () => reject(request.error);
-        });
-    },
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, "readonly");
 
-    async saveRecording(recording) {
+        const request = tx.objectStore(storeName).get(id);
 
-        const db =
-            await this.openDb();
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
 
-        return new Promise((resolve, reject) => {
+export async function getAllRecordings() {
+    const db = await openDb();
 
-            const tx =
-                db.transaction(
-                    this.storeName,
-                    "readwrite");
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, "readonly");
 
-            tx.objectStore(this.storeName)
-                .put(recording);
+        const request = tx.objectStore(storeName).getAll();
 
-            tx.oncomplete =
-                () => resolve();
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
 
-            tx.onerror =
-                () => reject(tx.error);
-        });
-    },
+export async function deleteRecording(id) {
+    const db = await openDb();
 
-    async getRecording(id) {
+    const tx = db.transaction(storeName, "readwrite");
 
-        const db =
-            await this.openDb();
+    tx.objectStore(storeName).delete(id);
+}
 
-        return new Promise((resolve, reject) => {
+export async function markUploaded(id) {
+    const record = await getRecording(id);
 
-            const tx =
-                db.transaction(
-                    this.storeName,
-                    "readonly");
-
-            const request =
-                tx.objectStore(
-                    this.storeName)
-                    .get(id);
-
-            request.onsuccess =
-                () => resolve(request.result);
-
-            request.onerror =
-                () => reject(request.error);
-        });
-    },
-
-    async getAllRecordings() {
-
-        const db =
-            await this.openDb();
-
-        return new Promise((resolve, reject) => {
-
-            const tx =
-                db.transaction(
-                    this.storeName,
-                    "readonly");
-
-            const request =
-                tx.objectStore(
-                    this.storeName)
-                    .getAll();
-
-            request.onsuccess =
-                () => resolve(request.result);
-
-            request.onerror =
-                () => reject(request.error);
-        });
-    },
-
-    async deleteRecording(id) {
-
-        const db =
-            await this.openDb();
-
-        const tx =
-            db.transaction(
-                this.storeName,
-                "readwrite");
-
-        tx.objectStore(
-            this.storeName)
-            .delete(id);
-    },
-
-    async markUploaded(id) {
-
-        const record =
-            await this.getRecording(id);
-
-        if (!record)
-            return;
-
-        record.uploaded = true;
-
-        await this.saveRecording(record);
-    },
-
-    async createAudioUrl(id) {
-
-        const record =
-            await this.getRecording(id);
-
-        if (!record)
-            return null;
-
-        return URL.createObjectURL(
-            record.blob);
+    if (!record) {
+        return;
     }
-};
+
+    record.uploaded = true;
+
+    await saveRecording(record);
+}
+
+export async function createAudioUrl(id) {
+    const record = await getRecording(id);
+
+    if (!record) {
+        return null;
+    }
+
+    return URL.createObjectURL(record.blob);
+}

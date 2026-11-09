@@ -1,183 +1,170 @@
-window.audioRecorder = {
+import { saveRecording } from "./audioStorage.js";
 
-    mediaRecorder: null,
-    stream: null,
-    chunks: [],
-    startTime: null,
-    dotnetRef: null,
+let mediaRecorder = null;
+let stream = null;
+let chunks = [];
+let startTime = null;
+let dotnetRef = null;
 
-    async start(dotnetRef) {
+export async function start(dotNetReference) {
 
-        this.dotnetRef = dotnetRef;
+    dotnetRef = dotNetReference;
 
-        if (!navigator.mediaDevices ||
-            !navigator.mediaDevices.getUserMedia) {
+    if (!navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia) {
 
-            throw new Error(
-                "Microfono non supportato");
-        }
-
-        this.stream =
-            await navigator.mediaDevices
-                .getUserMedia({
-                    audio: true
-                });
-
-        const mimeType =
-            this.getBestMimeType();
-
-        const options =
-            mimeType
-                ? { mimeType: mimeType }
-                : undefined;
-
-        this.mediaRecorder =
-            new MediaRecorder(
-                this.stream,
-                options);
-
-        this.chunks = [];
-
-        this.mediaRecorder.ondataavailable =
-            e => {
-
-                if (e.data.size > 0)
-                    this.chunks.push(e.data);
-            };
-
-        this.mediaRecorder.onerror =
-            async e => {
-
-                await this.dotnetRef
-                    .invokeMethodAsync(
-                        "RecordingError",
-                        e.error?.message ??
-                        "Errore registrazione");
-            };
-
-        this.mediaRecorder.onstop =
-            async () =>
-                await this.processRecording();
-
-        this.startTime = new Date();
-
-        this.mediaRecorder.start();
-    },
-
-    async processRecording() {
-
-        try {
-
-            const durationSeconds =
-                Math.floor(
-                    (Date.now() -
-                        this.startTime.getTime())
-                    / 1000);
-
-            const blob =
-                new Blob(
-                    this.chunks,
-                    {
-                        type:
-                            this.mediaRecorder.mimeType
-                    });
-
-            const extension =
-                this.getExtension(
-                    blob.type);
-
-            const id =
-                crypto.randomUUID();
-
-            const fileName =
-                `REC_${Date.now()}${extension}`;
-
-            await window.audioStorage
-                .saveRecording({
-                    id: id,
-                    name: fileName,
-                    createdAt: new Date().toISOString(),
-                    durationSeconds: durationSeconds,
-                    size: blob.size,
-                    contentType: blob.type,
-                    uploaded: false,
-                    blob: blob
-                });
-
-            await this.dotnetRef
-                .invokeMethodAsync(
-                    "RecordingSaved",
-                    id);
-        }
-        finally {
-
-            this.stream
-                ?.getTracks()
-                .forEach(t => t.stop());
-
-            this.stream = null;
-            this.chunks = [];
-        }
-    },
-
-    getExtension(contentType) {
-
-        if (contentType.includes("mp4"))
-            return ".m4a";
-
-        if (contentType.includes("mpeg"))
-            return ".mp3";
-
-        if (contentType.includes("ogg"))
-            return ".ogg";
-
-        return ".webm";
-    },
-
-    pause() {
-
-        if (this.mediaRecorder &&
-            this.mediaRecorder.state === 'recording') {
-            this.mediaRecorder.pause();
-        }
-    },
-
-    resume() {
-
-        if (this.mediaRecorder &&
-            this.mediaRecorder.state === 'paused') {
-            this.mediaRecorder.resume();
-        }
-    },
-
-    stop() {
-
-        if (this.mediaRecorder &&
-            this.mediaRecorder.state !== 'inactive') {
-            this.mediaRecorder.stop();
-        }
-    },
-
-    getBestMimeType()
-    {
-
-        const candidates = [
-            'audio/mp4',
-            'audio/mpeg',
-            'audio/webm;codecs=opus',
-            'audio/webm',
-            'audio/ogg;codecs=opus'
-        ];
-
-        for (const mime of candidates) {
-
-            if (window.MediaRecorder &&
-                MediaRecorder.isTypeSupported(mime)) {
-
-                return mime;
-            }
-        }
-
-        return '';
+        throw new Error("Microfono non supportato");
     }
-};
+
+    stream = await navigator.mediaDevices.getUserMedia({
+        audio: true
+    });
+
+    const mimeType = getBestMimeType();
+
+    const options = mimeType
+        ? { mimeType }
+        : undefined;
+
+    mediaRecorder = new MediaRecorder(
+        stream,
+        options);
+
+    chunks = [];
+
+    mediaRecorder.ondataavailable = e => {
+
+        if (e.data.size > 0) {
+            chunks.push(e.data);
+        }
+    };
+
+    mediaRecorder.onerror = async e => {
+
+        await dotnetRef.invokeMethodAsync(
+            "RecordingError",
+            e.error?.message ?? "Errore registrazione");
+    };
+
+    mediaRecorder.onstop = async () =>
+        await processRecording();
+
+    startTime = new Date();
+
+    mediaRecorder.start();
+}
+
+export async function processRecording() {
+
+    try {
+
+        const durationSeconds =
+            Math.floor(
+                (Date.now() - startTime.getTime()) / 1000);
+
+        const blob = new Blob(
+            chunks,
+            {
+                type: mediaRecorder.mimeType
+            });
+
+        const extension =
+            getExtension(blob.type);
+
+        const id =
+            crypto.randomUUID();
+
+        const fileName =
+            `REC_${Date.now()}${extension}`;
+
+        await saveRecording({
+            id,
+            name: fileName,
+            createdAt: new Date().toISOString(),
+            durationSeconds,
+            size: blob.size,
+            contentType: blob.type,
+            uploaded: false,
+            blob
+        });
+
+        await dotnetRef.invokeMethodAsync(
+            "RecordingSaved",
+            id);
+    }
+    finally {
+
+        stream
+            ?.getTracks()
+            .forEach(t => t.stop());
+
+        stream = null;
+        chunks = [];
+    }
+}
+
+export function getExtension(contentType) {
+
+    if (contentType.includes("mp4")) {
+        return ".m4a";
+    }
+
+    if (contentType.includes("mpeg")) {
+        return ".mp3";
+    }
+
+    if (contentType.includes("ogg")) {
+        return ".ogg";
+    }
+
+    return ".webm";
+}
+
+export function pause() {
+
+    if (mediaRecorder &&
+        mediaRecorder.state === "recording") {
+
+        mediaRecorder.pause();
+    }
+}
+
+export function resume() {
+
+    if (mediaRecorder &&
+        mediaRecorder.state === "paused") {
+
+        mediaRecorder.resume();
+    }
+}
+
+export function stop() {
+
+    if (mediaRecorder &&
+        mediaRecorder.state !== "inactive") {
+
+        mediaRecorder.stop();
+    }
+}
+
+export function getBestMimeType() {
+
+    const candidates = [
+        "audio/mp4",
+        "audio/mpeg",
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/ogg;codecs=opus"
+    ];
+
+    for (const mime of candidates) {
+
+        if (window.MediaRecorder &&
+            MediaRecorder.isTypeSupported(mime)) {
+
+            return mime;
+        }
+    }
+
+    return "";
+}
