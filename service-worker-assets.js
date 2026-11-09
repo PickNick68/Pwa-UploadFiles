@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "4QT3lk6P",
+  "version": "IUVPGc5x",
   "assets": [
     {
       "hash": "sha256-h8JVhhN3Up3ORsTsqfgGXj6OODy4XCYfVSJ1MUfl0mQ=",
@@ -38,11 +38,11 @@ self.assetsManifest = {
       "url": "_content/Blazor.Components.Client/Upload.jpeg"
     },
     {
-      "hash": "sha256-7dJH4x861ZaH+BMw99PNmSfnsVcvo3rOgcukKbISGTI=",
+      "hash": "sha256-JEKnJvoX1asgdlKza+Nx1JIjno6vsxzLVlxd4t1iD84=",
       "url": "_content/Blazor.MediaRecorder.Client/audioRecorder.js"
     },
     {
-      "hash": "sha256-UV+b5EApGc0SEGALz3dqwLju9HV7uveHeXxBNUteUD4=",
+      "hash": "sha256-hLMn5VvSxEPrV113rglCnlzzoTHv1cEupt0jZvJCJgM=",
       "url": "_content/Blazor.MediaRecorder.Client/audioStorage.js"
     },
     {

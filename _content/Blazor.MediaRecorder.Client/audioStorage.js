@@ -1,5 +1,6 @@
 window.audioStorage = {
 
+
     dbName: "AudioRecorderDb",
     storeName: "recordings",
 
